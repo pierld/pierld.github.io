@@ -1,37 +1,38 @@
-import { Experience } from "@/data/experience";
+import { Researchexp } from "@/data/researchexp";
 
-export function ExperienceEntry({ experience }: { experience: Experience }) {
+export function ResearchexpEntry({ researchexp }: { researchexp: Researchexp }) {
   return (
     <div className="grid grid-cols-4 gap-x-2">
-      <span className="text-xs text-zinc-500 mt-1">{experience.date}</span>
+      <span className="text-xs text-zinc-500 mt-1">{researchexp.date}</span>
       <div className="col-span-3 flex flex-col">
         <h3 className="text-base font-serif">
-          {experience.companyUrl ? (
+           
+          {researchexp.companyUrl ? (
             <a
-              href={experience.companyUrl}
+              href={researchexp.companyUrl}
               className="hover:text-zinc-600 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {experience.company}
+              {researchexp.company}
             </a>
           ) : (
-            experience.company
-          )} —{" "} {experience.title}
+            researchexp.company
+          )} —{" "}{researchexp.title}
         </h3>
-        {experience.advisor && (
+        {researchexp.advisor && (
           <p className="text-sm text-zinc-600 leading-relaxed italic mt-2">
-            Advisor: {experience.advisor}
+            Advisor: {researchexp.advisor}
           </p>
         )}
-        {experience.manager && (
+        {researchexp.manager && (
           <p className="text-sm text-zinc-600 leading-relaxed italic mt-2">
-            Manager: {experience.manager}
+            Manager: {researchexp.manager}
           </p>
         )}
-        {experience.description && (
+        {researchexp.description && (
           <p className="text-sm text-zinc-600 leading-relaxed mt-2">
-            {experience.description}
+            {researchexp.description}
           </p>
         )}
       </div>

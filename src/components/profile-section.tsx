@@ -13,6 +13,15 @@ interface ProfileSectionProps {
   aboutMe: AboutMe;
 }
 
+const getRandomAscii = () => {
+  let result = '';
+  while (result.length < 7) {
+    const randomNum = 33 + Math.floor(Math.random() * 94); // 33-126 = printable ASCII
+    result += String.fromCharCode(randomNum);
+  }
+  return result;
+};
+
 export function ProfileSection({ aboutMe }: ProfileSectionProps) {
   if (!aboutMe) {
     return null;
@@ -59,6 +68,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           )}
         </p>
         <div className="flex gap-6 mb-6">
+          {/*
           {aboutMe.blogUrl && (
             <a
               href={aboutMe.blogUrl}
@@ -73,6 +83,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
               <span className="tracking-wider uppercase">Blog</span>
             </a>
           )}
+          */}
           {aboutMe.cvUrl && (
             <a
               href={aboutMe.cvUrl}
@@ -84,7 +95,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
                 size={12}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
-              <span className="tracking-wider uppercase">CV</span>
+              <span className="tracking-wider uppercase">Curriculum Vitae</span>
             </a>
           )}
         </div>
@@ -96,7 +107,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             rel="noopener noreferrer"
           >
             <Mail size={14} />
+            {getRandomAscii()}#{getRandomAscii()}
+            {/*
+            <Mail size={14} />
             {aboutMe.email}
+            */}
           </a>
           {aboutMe.googleScholarUrl && (
             <>
@@ -135,7 +150,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
                 rel="noopener noreferrer"
               >
                 <Github size={14} />
-                github.com/{aboutMe.githubUsername}
+                github/{aboutMe.githubUsername}
               </a>
             </>
           )}
@@ -149,7 +164,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
                 rel="noopener noreferrer"
               >
                 <Linkedin size={14} />
-                linkedin.com/in/{aboutMe.linkedinUsername}
+                linkedin/{aboutMe.linkedinUsername}
               </a>
             </>
           )}

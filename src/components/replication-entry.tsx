@@ -1,15 +1,15 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { Portfolio } from "@/data/portfolio";
+import { Replication } from "@/data/replication";
 
-export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
+export function ReplicationEntry({ replication }: { replication: Replication }) {
   return (
     <div className="flex flex-col sm:flex-row gap-6">
-      {portfolio.imageUrl && (
+      {replication.imageUrl && (
         <div className="w-1/4 min-w-[160px] relative">
           <Image
-            src={portfolio.imageUrl}
-            alt={portfolio.title}
+            src={replication.imageUrl}
+            alt={replication.title}
             width={160}
             height={200}
             className="rounded-lg"
@@ -18,25 +18,25 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
       )}
       <div className="flex flex-col flex-1">
         <h3 className="font-serif text-md mb-3">
-          {portfolio.projectUrl ? (
+          {replication.projectUrl ? (
             <a
-              href={portfolio.projectUrl}
+              href={replication.projectUrl}
               className="group inline-flex items-center gap-2 hover:text-zinc-600 transition-colors duration-300"
             >
-              {portfolio.title}
+              {replication.title}
               <ArrowUpRight
                 size={16}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
             </a>
           ) : (
-            portfolio.title
+            replication.title
           )}
         </h3>
 
-        {portfolio.technologies && (
+        {replication.technologies && (
           <div className="flex gap-2 mb-4 flex-wrap">
-            {portfolio.technologies.map((tech, index) => (
+            {replication.technologies.map((tech, index) => (
               <span
                 key={index}
                 className="text-xs text-zinc-600 px-2 py-1 bg-zinc-100 rounded-full"
@@ -48,9 +48,9 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
         )}
 
         <div className="flex gap-6">
-          {portfolio.projectUrl && (
+          {replication.projectUrl && (
             <a
-              href={portfolio.projectUrl}
+              href={replication.projectUrl}
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
               <ArrowUpRight
@@ -60,9 +60,9 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
               <span className="tracking-wider uppercase">Project</span>
             </a>
           )}
-          {portfolio.codeUrl && (
+          {replication.codeUrl && (
             <a
-              href={portfolio.codeUrl}
+              href={replication.codeUrl}
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
               <ArrowUpRight
@@ -74,7 +74,7 @@ export function PortfolioEntry({ portfolio }: { portfolio: Portfolio }) {
           )}
         </div>
         <p className="text-sm text-zinc-600 mb-4 mt-4 italic">
-          {portfolio.description}
+          {replication.description}
         </p>
       </div>
     </div>
