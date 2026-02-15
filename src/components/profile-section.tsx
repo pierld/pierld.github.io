@@ -13,6 +13,7 @@ interface ProfileSectionProps {
   aboutMe: AboutMe;
 }
 
+{/*
 const getRandomAscii = () => {
   let result = '';
   while (result.length < 7) {
@@ -21,6 +22,7 @@ const getRandomAscii = () => {
   }
   return result;
 };
+*/}
 
 export function ProfileSection({ aboutMe }: ProfileSectionProps) {
   if (!aboutMe) {
