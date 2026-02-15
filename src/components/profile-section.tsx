@@ -107,7 +107,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             rel="noopener noreferrer"
           >
             <Mail size={14} />
-            {getRandomAscii()}#{getRandomAscii()}
+            reach::out
             {/*
             <Mail size={14} />
             {aboutMe.email}
@@ -150,7 +150,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
                 rel="noopener noreferrer"
               >
                 <Github size={14} />
-                github/{aboutMe.githubUsername}
+                codes::{aboutMe.githubUsername}
               </a>
             </>
           )}

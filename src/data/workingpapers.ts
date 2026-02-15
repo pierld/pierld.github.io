@@ -1,6 +1,6 @@
 export interface WorkingPaper {
-  year: string;
-  conference: string;
+  year?: string;
+  conference?: string;
   title: string;
   authors: string;
   paperUrl?: string;
@@ -14,8 +14,7 @@ export interface WorkingPaper {
 export const workingpaperData: WorkingPaper[] = [
   
   {
-    year: "(2026)",
-    conference: "European Central Bank",
+    year: "(in progress)",
     title: "Evaluating the Debt-at-Risk Framework: Evidence from Euro Area Countries",
     authors: "Pierre M. Rouillard, Krzysztof Bańkowski",
     tldr: "This paper examines how current economic, financial, and political conditions shape the entire conditional distribution of future public debt in Euro area countries. Additionally, we provide the first out-of-sample evaluation of the IMF’s newly developed Debt-at-Risk framework. We find that its predictive performance surpasses alternative models at short horizons, especially for extreme outcomes. These findings support the use of probabilistic risk-based frameworks in guiding fiscal surveillance and informing policy makers to rising debt vulnerabilities.",
