@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight, ChevronDown, ChevronRight } from "lucide-react";
-import { WorkingPaper } from "@/data/workingpapers";
+import { PaperLink, WorkingPaper } from "@/data/workingpapers";
 
 export function WorkingPaperEntry({
   workingpaper,
@@ -11,6 +11,12 @@ export function WorkingPaperEntry({
   workingpaper: WorkingPaper;
 }) {
   const [showAbstract, setShowAbstract] = useState(false);
+
+  const paperLinks: PaperLink[] = !workingpaper.paperUrl
+    ? []
+    : typeof workingpaper.paperUrl === "string"
+    ? [{ label: "Paper", url: workingpaper.paperUrl }]
+    : workingpaper.paperUrl;
 
   return (
     <div className="flex flex-col sm:flex-row gap-6">
@@ -31,15 +37,19 @@ export function WorkingPaperEntry({
         
         <p className="text-sm text-zinc-600 mb-2">{workingpaper.authors}</p>
         
-        <p className="text-xs text-zinc-500 mb-4">
-          {workingpaper.subtitle}
-        </p>
+        {workingpaper.subtitle && (
+          <p className="text-xs text-zinc-500 mb-4">
+            {workingpaper.subtitle}
+          </p>
+        )}
 
+        {(paperLinks.length > 0 || workingpaper.codeUrl || workingpaper.bibtex) && (
         <div className="flex flex-row gap-6">
 
-          {workingpaper.paperUrl && (
+          {paperLinks.map((link) => (
             <a
-              href={workingpaper.paperUrl}
+              key={link.url}
+              href={link.url}
               target="_blank"
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
@@ -47,9 +57,9 @@ export function WorkingPaperEntry({
                 size={12}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
-              <span className="tracking-wider uppercase">Paper</span>
+              <span className="tracking-wider uppercase">{link.label}</span>
             </a>
-          )}
+          ))}
 
           {workingpaper.codeUrl && (
             <a
@@ -79,10 +89,11 @@ export function WorkingPaperEntry({
             </a>
           )}
         </div>
+        )}
         
           
         {workingpaper.tldr && (
-          <div className="mt-4">
+          <div className={workingpaper.subtitle || paperLinks.length > 0 || workingpaper.codeUrl || workingpaper.bibtex ? "mt-4" : "mt-1"}>
             <button
               type="button"
               onClick={() => setShowAbstract((prev) => !prev)}
@@ -93,7 +104,8 @@ export function WorkingPaperEntry({
               ) : (
                 <ChevronRight size={12} />
               )}
-              <span className="tracking-wider uppercase">Abstract</span>
+              {/* tracking-wider uppercase */}
+              <span className="tracking-wider">abstract</span>
             </button>
             {showAbstract && (
               <p className="text-sm italic text-zinc-600 mt-2">
