@@ -22,7 +22,7 @@ export const aboutMe: AboutMe = {
   title:       "___________________________________",
   institution: "RA @International Monetary Fund",
   description:
-    "Research assistant and aspiring economics researcher with a deep interest in time-series econometrics. I'm particularly keen on empirical methods in macroeconomics and on topics related to inference of these approaches. Basically interested in anything related to empirical macro.",
+    "Research assistant and aspiring economics researcher with a deep interest in time-series econometrics. I'm particularly keen on empirical methods in macroeconomics and on topics related to inference of these approaches. Broadly interested in empirical macro.",
   email: "prd1@proton.me",
   imageUrl:
     "/images/yez.png",

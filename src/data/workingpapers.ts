@@ -23,7 +23,7 @@ export const workingpaperData: WorkingPaper[] = [
     subtitle: "European Central Bank (2026), Deutsche Bundesbank (2026)",
     title: "Import tariff transmission in a production network",
     authors: "Makram Khalil, Felix Strobel, Pierre M. Rouillard",
-    paperUrl: "https://mpra.ub.uni-muenchen.de/125698/",
+    paperUrl: "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3258~46133509d4.en.pdf?e8dabea02989246bc5f16ccce85e3c56", //"https://mpra.ub.uni-muenchen.de/125698/",
     codeUrl: "https://github.com/eiprd/tariff_production_network",
     tldr: "We find evidence that US manufacturing sectors experience US import tariffs either as supply-side or demand-side shocks, depending on the location of the sector and the affected products in the US production network. Using local projections in a panel of US manufacturing sectors, we find that US import tariffs —in particular including the 2018-19 tariff hikes— led to sectoral output contractions via two different channels: (1) Tariff increases act as negative supply shocks for sectors that use the affected goods as input in production and thus face rising input costs; (2) Tariff increases act as negative demand shocks for sectors whose customers experience the tariff increase as a negative supply shock and reduce their production."
   },
